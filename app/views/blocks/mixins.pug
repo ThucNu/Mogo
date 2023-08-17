@@ -1,0 +1,89 @@
+mixin menuLink(title, href="#")
+	li.header-menu-item 
+		a.header-menu-link(href= href)= title 
+
+mixin headerBottomItem(data)
+	.header-bottom-item
+		span.header-bottom-number= data.number
+		span.header-bottom-text= data.title 
+mixin blockBox(caption, title, desc)
+	.block-box
+		h3.block-box-caption= caption 
+		h2.block-box-heading= title 
+		if desc
+			p.block-box-desc= desc
+mixin aboutItem(src, title, iconClass, alt="") 
+	.about-item 
+			img.about-img(src=src, alt=alt)
+			.about-content 
+				i.about-icon(class= iconClass)
+				span.about-title= title
+mixin numberItem(num, text)
+	.number-item 
+		h4.number-item-count= num
+		span.number-item-text= text
+mixin serviceItem(iconClass,title,desc)
+	.service-item 
+		i.service-item-icon(class=iconClass) 
+		.service-item-info
+			h3.service-item-title=title
+			p.service-item-desc=desc
+mixin wedoItem(src,title,iconClass,text,active="")
+	.wedo-item(class= active)
+		.wedo-item-header 
+			img.wedo-item-icon(src= src)
+			h3.wedo-item-title=title 
+			i.wedo-item-arrow(class= iconClass) 
+		.wedo-item-content 
+			.wedo-item-text=text
+mixin teamItem(src,name,position,linkFb="#",linkIns="*",linkTw="/",linkP="&")
+	.team-item 
+		.team-main
+			img(src=src) 
+			.team-content 
+				ul.team-social 
+					li.team-social-item 
+						a.team-social-link(href=linkFb)
+							i.fab.fa-facebook-f
+					li.team-social-item
+						a.team-social-link(href=linkIns)
+							i.fab.fa-instagram
+					li.team-social-item
+						a.team-social-link(href=linkTw)
+							i.fab.fa-twitter
+					li.team-social-item
+						a.team-social-link(href=linkP)
+							i.fab.fa-pinterest
+		.team-info 
+			h3.team-name= name
+			span.team-position= position
+mixin workItem(src,iconClass,title,desc,classFull="")
+	.work-item(class=classFull) 
+		img.work-image(src=src)
+		.work-content 
+			i.work-icon(class=iconClass) 
+			h3.work-title=title 
+			span.work-desc=desc
+mixin peopleItem(src,name,job,desc)
+	li.people-item 
+		img.people-avatar(src=src)
+		.people-info 
+			h3.people-name=name 
+			span.people-job.text.text--light=job 
+			p.people-desc=desc
+mixin iconStory(icon,number)
+	.story-meta-item 
+		i.story-meta-icon(class=icon) 
+		span.story-meta-number.text=number
+mixin storyItem(src,numDate,text,title,desc)
+	li.story-item 
+		.story-media 
+			img.story-image(src=src)
+			.story-date
+				span.story-date-number=numDate
+				span.story-date-text.text.text--light=text
+		h3.story-title=title
+		p.story-desc.text=desc
+		.story-meta 
+			+iconStory("fa fa-eye","56")
+			+iconStory("fa fa-comment","16")
